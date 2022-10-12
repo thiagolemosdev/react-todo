@@ -12,6 +12,7 @@
 
   background-color: var(--gray-500);
   border: none;
+  color: var(--gray-100);
 }
 
 .form button {
@@ -26,6 +27,12 @@
   border: none;
   color: var(--gray-100);
   font-size: 0.875rem;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.form button:hover {
+  background: var(--blue);
 }
 
 @media (max-width: 768px) {
