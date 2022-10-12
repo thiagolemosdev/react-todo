@@ -3,6 +3,7 @@ import InputTodo from './components/InputTodo'
 
 import styles from './App.module.css'
 import './global.css'
+import Tasks from './components/TasksList'
 
 function App() {
 
@@ -10,7 +11,12 @@ function App() {
     <>
       <Header />
       <div className={styles.wrapper}>
-        <InputTodo />
+        <div>
+          <InputTodo />
+        </div>
+        <main>
+          <Tasks />
+        </main>
       </div>
     </>
   )

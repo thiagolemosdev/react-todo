@@ -1,0 +1,30 @@
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: var(--gray-500);
+  color: var(--gray-100);
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+  margin-bottom: 0.875rem;
+}
+
+.task p {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 140%;
+}
+
+.trash {
+  color: var(--gray-300);
+  transition: 0.3s;
+}
+
+.trash:hover {
+  background-color: var(--gray-400);
+  color: var(--danger);
+
+  border-radius: 4px;
+}
