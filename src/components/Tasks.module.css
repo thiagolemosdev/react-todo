@@ -49,6 +49,8 @@
 .trash {
   color: var(--gray-300);
   transition: 0.3s;
+  width: 32px;
+  height: 32px;
 }
 
 .trash:hover {

@@ -1,9 +1,12 @@
 import Header from './components/Header'
-import InputTodo from './components/InputTodo'
 
 import styles from './App.module.css'
 import './global.css'
-import Tasks from './components/TasksList'
+import TasksList from './components/TasksList'
+import { v4 } from 'uuid';
+
+
+const tasks = []
 
 function App() {
 
@@ -11,11 +14,8 @@ function App() {
     <>
       <Header />
       <div className={styles.wrapper}>
-        <div>
-          <InputTodo />
-        </div>
         <main>
-          <Tasks />
+          <TasksList task={tasks} />
         </main>
       </div>
     </>
