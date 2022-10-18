@@ -1,14 +1,14 @@
-import React from 'react'
-import { Trash } from 'phosphor-react'
-import styles from './Tasks.module.css'
+import React from "react";
+import { Trash } from "phosphor-react";
+import styles from "./Tasks.module.css";
 
-interface Task {
-  id: string,
-  note: string,
-  isComplete: boolean,
-}
+// interface Task {
+//   id: string,
+//   note: string,
+//   isComplete: boolean,
+// }
 
-export default function Tasks({ id, note, isComplete }: Task) {
+export default function Tasks({ id, note, isComplete }) {
   return (
     <div>
       <div className={styles.task}>
@@ -17,5 +17,5 @@ export default function Tasks({ id, note, isComplete }: Task) {
         <Trash className={styles.trash} size={32} />
       </div>
     </div>
-  )
+  );
 }
