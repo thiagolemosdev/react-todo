@@ -6,36 +6,50 @@ import { v4 } from 'uuid';
 
 export default function TasksList() {
 
-  const [tasks, setTasks] = useState([{
-    id: v4(),
-    note: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae aliquid tenetur libero unde nostrum laudantium, reprehenderit qui voluptate mollitia sapiente numquam modi ratione sunt, atque aut asperiores, aperiam aspernatur iusto!",
-    isComplete: false
-  },
-  {
-    id: v4(),
-    note: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate, ratione!",
-    isComplete: false
-  },])
-  console.log(tasks)
+  // const handleKeyUp = (e: KeyboardEvent) => {
+  //   if (event.newTask === handleNewTaskChange && handleCreateNewTasks !== '') {
+  //     onClick(handleCreateNewTasks);
+  //     handleNewTaskChange('');
+  //   }
 
-  const [newTask, setNewTask] = useState([])
+  let input
+  function handleNewTaskChange(event) {
+    event.preventDefault();
+
+    input = event.target.value
+    console.log(input)
+  }
+
+  const [tasks, setTasks] = useState([
+    // {
+    //   id: v4(),
+    //   note: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae aliquid tenetur libero unde nostrum laudantium, reprehenderit qui voluptate mollitia sapiente numquam modi ratione sunt, atque aut asperiores, aperiam aspernatur iusto!",
+    //   isComplete: false
+    // },
+    // {
+    //   id: v4(),
+    //   note: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate, ratione!",
+    //   isComplete: false
+    // },
+  ])
+
+  const [newTask, setNewTask] = useState()
 
   function handleCreateNewTasks(event) {
     event.preventDefault();
-    console.log(event.target.innerText)
-    setNewTask({
+
+    setTasks([...tasks, {
       id: v4(),
-      note: event.target.innerText,
+      note: input,
       isComplete: false
-    })
-    setTasks([...tasks, newTask])
+    }])
   }
 
   return (
     <div>
-      <form onSubmit={handleCreateNewTasks} className={styles.form}>
-        <input type="text" placeholder='Adicione uma nova tarefa' />
-        <button type="submit" >Criar <PlusCircle size={16} /> </button>
+      <form className={styles.form}>
+        <input onChange={handleNewTaskChange} type="text" placeholder='Adicione uma nova tarefa' />
+        <button onClick={handleCreateNewTasks} >Criar <PlusCircle size={16} /> </button>
       </form>
 
       <div className={styles.status}>
