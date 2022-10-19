@@ -22,7 +22,9 @@ export default function TasksList() {
 
   function handleCreateNewTasks(event) {
     event.preventDefault();
-
+    if (newTaskChange.length <= 0) {
+      return;
+    }
     setTasks([
       ...tasks,
       {
