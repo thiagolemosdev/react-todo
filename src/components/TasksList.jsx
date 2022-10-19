@@ -17,6 +17,8 @@ export default function TasksList() {
 
   const [newTask, setNewTask] = useState([]);
 
+  const [tasksComplete, setNewTaskComplete] = useState([])
+
   function handleCreateNewTasks(event) {
     event.preventDefault();
 
@@ -32,6 +34,14 @@ export default function TasksList() {
     input = ''
   }
 
+  function checkTasksasksComplete() {
+    const taskComplete = tasks.filter((task) => {
+      return task.isComplete == true
+    })
+    setNewTaskComplete(taskComplete);
+    console.log(tasksComplete)
+  }
+
   function changeCompleteTask(taskToChange) {
     const taskChanged = tasks.filter((task) => {
       if (taskToChange == task.id) {
@@ -44,8 +54,10 @@ export default function TasksList() {
         }
       }
     });
-    console.log(taskChanged)
+
+    checkTasksasksComplete()
   }
+
 
   function deleteTask(taskToDelete) {
     const tasksWithoutDeletedOne = tasks.filter((task) => {
@@ -94,7 +106,7 @@ export default function TasksList() {
             Tarefas criadas<span>{tasks.length}</span>
           </p>
           <p className={styles.concluded}>
-            Concluidas<span>0</span>
+            Concluidas<span>{tasksComplete.length} de {tasks.length}</span>
           </p>
         </div>
 
