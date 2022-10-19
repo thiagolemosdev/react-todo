@@ -28,10 +28,23 @@ export default function TasksList() {
         isComplete: false,
       },
     ]);
+
+    input = ''
   }
 
-  function completeTask() {
-
+  function changeCompleteTask(taskToChange) {
+    const taskChanged = tasks.filter((task) => {
+      if (taskToChange == task.id) {
+        if (task.isComplete == false) {
+          task.isComplete = true
+          return task
+        } else {
+          task.isComplete = false
+          return task
+        }
+      }
+    });
+    console.log(taskChanged)
   }
 
   function deleteTask(taskToDelete) {
@@ -94,7 +107,7 @@ export default function TasksList() {
                   id={task.id}
                   note={task.note}
                   isComplete={task.isComplete}
-                  onCompleteTask={completeTask}
+                  onCompleteTask={changeCompleteTask}
                   onDeleteTask={deleteTask}
                 />
               </div>

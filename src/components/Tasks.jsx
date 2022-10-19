@@ -8,10 +8,14 @@ export default function Tasks({ id, note, isComplete, onDeleteTask, onCompleteTa
     onDeleteTask(id)
   }
 
+  function handleChangedCompleteTask() {
+    onCompleteTask(id)
+  }
+
   return (
     <div>
       <div className={styles.task}>
-        <input type="checkbox" name={`checkbox-${id}`} id={`checkbox-${id}`} />
+        <input onClick={handleChangedCompleteTask} type="checkbox" name={`checkbox-${id}`} id={`checkbox-${id}`} />
         <label htmlFor={`checkbox-${id}`}>{note}</label>
         <Trash onClick={handleDeleteTask} className={styles.trash} size={32} />
       </div>
