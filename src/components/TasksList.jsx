@@ -58,7 +58,6 @@ export default function TasksList() {
     checkTasksasksComplete()
   }
 
-
   function deleteTask(taskToDelete) {
     const tasksWithoutDeletedOne = tasks.filter((task) => {
       return task.id !== taskToDelete;
