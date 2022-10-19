@@ -29,6 +29,7 @@
   background: transparent;
   border: 1px solid var(--blue); */
   display: inline-block;
+  background-repeat: no-repeat;
 }
 
 .task input[type="checkbox"]:checked + label:before {
