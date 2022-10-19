@@ -6,16 +6,17 @@ import { v4 } from "uuid";
 
 export default function TasksList() {
 
-  let input
+  const [newTaskChange, setNewTaskChange] = useState('')
+
   function handleNewTaskChange(event) {
     event.preventDefault();
 
-    input = event.target.value
+    setNewTaskChange(event.target.value)
   }
 
   const [tasks, setTasks] = useState([]);
 
-  const [newTask, setNewTask] = useState([]);
+  // const [newTask, setNewTask] = useState([]);
 
   const [tasksComplete, setNewTaskComplete] = useState([])
 
@@ -26,12 +27,12 @@ export default function TasksList() {
       ...tasks,
       {
         id: v4(),
-        note: input,
+        note: newTaskChange,
         isComplete: false,
       },
     ]);
-
-    input = ''
+    setNewTaskChange("")
+    console.log(newTaskChange)
   }
 
   function checkTasksasksComplete() {
@@ -39,7 +40,6 @@ export default function TasksList() {
       return task.isComplete == true
     })
     setNewTaskComplete(taskComplete);
-    console.log(tasksComplete)
   }
 
   function changeCompleteTask(taskToChange) {
@@ -97,7 +97,7 @@ export default function TasksList() {
     return (
       <div>
         <form onSubmit={handleCreateNewTasks} className={styles.form}>
-          <input onChange={handleNewTaskChange} type="text" placeholder='Adicione uma nova tarefa' />
+          <input onChange={handleNewTaskChange} type="text" placeholder='Adicione uma nova tarefa' value={newTaskChange} />
           <button onClick={handleCreateNewTasks} >Criar <PlusCircle size={16} /> </button>
         </form>
 
